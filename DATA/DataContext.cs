@@ -11,7 +11,7 @@ namespace CP2_CSHARP.DATA
         { 
         }
 
-        public DbSet<User> T_USUARIO { get; set; }
+        public DbSet<User> MVC_USUARIO { get; set; }
 
     }
 }

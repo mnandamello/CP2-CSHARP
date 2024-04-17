@@ -24,14 +24,14 @@ namespace CP2_CSHARP.Controllers
 
         public IActionResult Register(User resquest)
         {
-            var user = _dataContext.T_USUARIO.FirstOrDefault(x => x.UserEmail == resquest.UserEmail);
+            var user = _dataContext.MVC_USUARIO.FirstOrDefault(x => x.UserEmail == resquest.UserEmail);
             if (user != null)
             {
                 return BadRequest("Usuário ja existe");
             }
             User newUser = new User
             {
-                Id = resquest.Id,
+                id = resquest.id,
                 UserEmail = resquest.UserEmail,
                 UserName = resquest.UserName,
                 UserPassword = resquest.UserPassword,
