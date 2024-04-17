@@ -21,6 +21,26 @@ namespace CP2_CSHARP.Controllers
             return View();
         }
 
+
+        public IActionResult Register(User resquest)
+        {
+            var user = _dataContext.T_USUARIO.FirstOrDefault(x => x.UserEmail == resquest.UserEmail);
+            if (user != null)
+            {
+                return BadRequest("Usuário ja existe");
+            }
+            User newUser = new User
+            {
+                Id = resquest.Id,
+                UserEmail = resquest.UserEmail,
+                UserName = resquest.UserName,
+                UserPassword = resquest.UserPassword,
+            };
+            _dataContext.Add(newUser);
+            _dataContext.SaveChanges();
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
